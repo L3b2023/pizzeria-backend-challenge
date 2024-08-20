@@ -17,7 +17,6 @@ app.get('/api/orders', (req, res) => {
     if (error){
       return res.status(500).json({error: 'an error ocurred with your request'})
     }
-    
     res.json(results)
   })
 })
@@ -29,9 +28,10 @@ app.get('/api/orders/:id', (req, res) =>{
     if (error){
       return res.status(500).json({error: 'an error ocurred with your request'})
     }
-    res.json(results)
+    res.json({
+      'order details': results 
+    })
   })
-
 })
 
 app.get('/api/pizzas', (req, res) => {
